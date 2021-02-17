@@ -15,7 +15,11 @@ namespace TelemedicineApp.API
         {
             CreateHostBuilder(args).Build().Run();
         }
-
+        /// <summary>
+        /// Create Host Builder
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
