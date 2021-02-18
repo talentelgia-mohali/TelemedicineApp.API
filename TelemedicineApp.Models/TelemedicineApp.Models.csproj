@@ -4,4 +4,19 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Request\**" />
+    <Compile Remove="Response\**" />
+    <Compile Remove="ViewModels\Request\**" />
+    <Compile Remove="ViewModels\Response\**" />
+    <EmbeddedResource Remove="Request\**" />
+    <EmbeddedResource Remove="Response\**" />
+    <EmbeddedResource Remove="ViewModels\Request\**" />
+    <EmbeddedResource Remove="ViewModels\Response\**" />
+    <None Remove="Request\**" />
+    <None Remove="Response\**" />
+    <None Remove="ViewModels\Request\**" />
+    <None Remove="ViewModels\Response\**" />
+  </ItemGroup>
+
 </Project>
