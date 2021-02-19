@@ -5,7 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TelemedicineApp.Database\TelemedicineApp.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TelemedicineApp.Models">
+      <HintPath>..\TelemedicineApp.Models\bin\Debug\net5.0\TelemedicineApp.Models.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
