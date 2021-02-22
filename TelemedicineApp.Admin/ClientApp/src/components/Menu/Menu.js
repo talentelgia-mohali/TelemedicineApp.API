@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
 
 export default class Menu extends Component {
     render() {
@@ -6,10 +8,12 @@ export default class Menu extends Component {
             <div>
                 <aside className="main-sidebar sidebar-dark-primary elevation-4">
                     {/* Brand Logo */}
-                    <a href="index3.html" className="brand-link">
+
+                    <NavLink tag={Link} to="/Dashboard/Dashboard" className="brand-link brand_Logo">
                         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{ opacity: '.8' }} />
-                        <span className="brand-text font-weight-light">Telemedicine</span>
-                    </a>
+                        <span className="brand-text font-weight-light"><b>Telemedicine</b></span>
+                    </NavLink>
+
                     {/* Sidebar */}
                     <div className="sidebar">
                         {/* Sidebar user panel (optional) */}
@@ -26,10 +30,10 @@ export default class Menu extends Component {
                         <nav className="mt-2">
                             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                                 {/* Add icons to the links using the .nav-icon class
-                                with font-awesome or any other icon font library */}  
+                                with font-awesome or any other icon font library */}
                                 <a href="#">
                                     <li className="nav-header"> <i class="fa fa-users"></i><span>  Users</span></li>
-                                </a>                               
+                                </a>
 
                                 <li className="nav-item has-treeview">
                                     <a href="#" className="nav-link">
@@ -41,17 +45,17 @@ export default class Menu extends Component {
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <a href="pages/examples/invoice.html" className="nav-link">
+                                            <NavLink tag={Link} to="/Doctors/AddDoctor">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>Add Doctor</p>
-                                            </a>
+                                                Add Doctor
+                                             </NavLink>
                                         </li>
 
                                         <li className="nav-item">
-                                            <a href="pages/examples/profile.html" className="nav-link">
+                                            <NavLink tag={Link} to="/Doctors/DoctorList">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>Doctor List</p>
-                                            </a>
+                                                Doctor List 
+                                             </NavLink>
                                         </li>
                                     </ul>
                                 </li>
@@ -67,16 +71,16 @@ export default class Menu extends Component {
 
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <a href="pages/mailbox/mailbox.html" className="nav-link">
+                                            <NavLink tag={Link} to="/Patients/AddPatient">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p> Add Patient</p>
-                                            </a>
+                                                Add Patient
+                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <a href="pages/mailbox/compose.html" className="nav-link">
+                                            <NavLink tag={Link} to="/Patients/PatientList">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p> Patients List</p>
-                                            </a>
+                                                Patients List
+                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
                                             <a href="pages/mailbox/read-mail.html" className="nav-link">
@@ -103,8 +107,8 @@ export default class Menu extends Component {
                                             </a>
                                         </li>
                                     </ul>
-                                </li>  
-                                
+                                </li>
+
                             </ul>
                         </nav>
                         {/* /.sidebar-menu */}

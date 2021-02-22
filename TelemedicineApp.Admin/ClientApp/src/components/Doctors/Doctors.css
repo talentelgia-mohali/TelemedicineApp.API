@@ -1,0 +1,19 @@
+﻿
+
+.brand_Logo {
+    height: 56px;
+}
+
+.docform_Registration {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.contentDoclist {
+    padding: 15px 15px 0 15px;
+}
