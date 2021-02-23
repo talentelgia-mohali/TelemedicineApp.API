@@ -4,7 +4,7 @@ export default class Header extends Component {
     render() {
         return (
             <div>
-                <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+                <nav className="main-header navbar navbar-expand navbar-blue navbar-light">
                     {/* Left navbar links */}
                     <ul className="navbar-nav">
                         <li className="nav-item">
@@ -100,6 +100,7 @@ export default class Header extends Component {
                                 <a href="#" className="dropdown-item dropdown-footer">See All Notifications</a>
                             </div>
                         </li>
+
                         <li className="nav-item">
                             <a className="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
                                 <i className="ion ion-log-out" />
