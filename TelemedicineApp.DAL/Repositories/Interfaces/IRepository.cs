@@ -14,8 +14,6 @@ namespace TelemedicineApp.DAL.Repositories.Interfaces
         bool Delete(Guid id);
         T GetById(Guid id);
         ICollection<T> GetAll();
-
-       
         void Save();
         void Dispose();
 

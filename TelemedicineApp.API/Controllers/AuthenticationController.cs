@@ -7,6 +7,7 @@ using TelemedicineApp.Models.Common;
 using TelemedicineApp.DAL.Repositories.Interfaces;
 using TelemedicineApp.Database.Models;
 using TelemedicineApp.DAL;
+using TelemedicineApp.API.Helpers;
 
 namespace TelemedicineApp.API.Controllers
 {
@@ -35,7 +36,7 @@ namespace TelemedicineApp.API.Controllers
                 {
                     var response = new
                     {
-                        Message = "User Login Successfully.",
+                        Message = SucessMessage.SuccessUserLogin,
                         status = true,
                     };
                     return Ok(response);
@@ -46,7 +47,7 @@ namespace TelemedicineApp.API.Controllers
                     {
                         var response = new
                         {
-                            Message = "Password Is not correct.",
+                            Message = ErrorMessage.errEmail,
                             status = false,
                         };
                         return Ok(response);
@@ -57,7 +58,7 @@ namespace TelemedicineApp.API.Controllers
                         {
                             var response = new
                             {
-                                Message = "Email Is not correct.",
+                                Message = ErrorMessage.errPassword,
                                 status = false,
                             };
                             return Ok(response);
@@ -66,18 +67,17 @@ namespace TelemedicineApp.API.Controllers
                         {
                             var response = new
                             {
-                                Message = "Email && Password Is not correct.",
+                                Message = ErrorMessage.errPasswordorEmail,
                                 status = false,
                             };
                             return Ok(response);
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
-                //Utilities.QuickLog($"Failed to Customer Controller, Function : SignIn : {ex}");
+                Utilities.QuickLog($"Failed to Authentication Controller, Function : SignIn : {ex}");
                 return Ok(ex);
             }
         }
