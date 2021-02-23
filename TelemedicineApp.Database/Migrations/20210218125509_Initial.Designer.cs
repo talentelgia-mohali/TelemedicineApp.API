@@ -9,7 +9,7 @@ using TelemedicineApp.Database;
 
 namespace TelemedicineApp.Database.Migrations
 {
-    [DbContext(typeof(DataServer))]
+    [DbContext(typeof(TeleMedicineContext))]
     [Migration("20210218125509_Initial")]
     partial class Initial
     {

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TelemedicineApp.DAL;
+using TelemedicineApp.Database;
 
 namespace TelemedicineApp.API
 {
@@ -27,8 +30,16 @@ namespace TelemedicineApp.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<TeleMedicineContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            //services.AddTransient<IRepository<tblUser>, Repository<tblUser>>();
+            // services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+              services.AddScoped<IUnitOfWork, UnitOfWork>();
+           
+             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TelemedicineApp.API", Version = "v1" });
             });
@@ -43,7 +54,7 @@ namespace TelemedicineApp.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TelemedicineApp.API v1"));
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

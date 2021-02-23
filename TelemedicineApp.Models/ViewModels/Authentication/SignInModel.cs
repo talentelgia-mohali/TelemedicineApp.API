@@ -10,7 +10,7 @@ namespace TelemedicineApp.Models.Common
     public class SignInModel
     {
 		[Required]		
-		public string Login { get; set; }
+		public string Email { get; set; }
 
 		[Required]
 		[DataType(DataType.Password)]

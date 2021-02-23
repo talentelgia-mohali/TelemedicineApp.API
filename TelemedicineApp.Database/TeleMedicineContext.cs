@@ -9,16 +9,17 @@ using TelemedicineApp.Database.Models;
 
 namespace TelemedicineApp.Database
 {
-    internal class DataServer : DbContext
+    public class TeleMedicineContext : DbContext
     {
         //string strConnection = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
-        string strConnection = @"Data Source=LAPTOP-HAPT2KIV\SQLEXPRESS;Initial Catalog=TelemedicineDB;User Id=sa;Password=123456789;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-         
+        string strConnection = @"Data Source=HP\SQLEXPRESS;Initial Catalog=TelemedicineDB;Integrated Security=True;";
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {                        
             optionsBuilder.UseSqlServer(strConnection);
         }
-
+        public TeleMedicineContext(DbContextOptions options) : base(options)
+        { }
         public DbSet<tblUser> tblUsers { get; set; } 
     }
 }

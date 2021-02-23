@@ -8,7 +8,7 @@ using TelemedicineApp.Database;
 
 namespace TelemedicineApp.Database.Migrations
 {
-    [DbContext(typeof(DataServer))]
+    [DbContext(typeof(TeleMedicineContext))]
     partial class DataServerModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
