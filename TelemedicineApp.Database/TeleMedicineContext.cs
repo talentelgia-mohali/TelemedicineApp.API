@@ -20,7 +20,15 @@ namespace TelemedicineApp.Database
         }
         public TeleMedicineContext(DbContextOptions options) : base(options)
         { }
-        public DbSet<tblUser> tblUsers { get; set; } 
+        public DbSet<tblUser> tblUsers { get; set; }
+        public DbSet<tblCity> tblCity { get; set; }
+        public DbSet<tblCountry> tblCountry { get; set; }
+        public DbSet<tblCountryState> tblCountryState { get; set; }
+        public DbSet<tblRole> tblRole { get; set; }
+        public DbSet<tblState> tblState { get; set; }
+        public DbSet<tblStatus> tblStatus { get; set; }
+        public DbSet<tblStateCity> tblStateCity { get; set; }
+        
     }
 }
 

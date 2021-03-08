@@ -1,23 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace TelemedicineApp.Database.Models
+namespace TelemedicineApp.Models.ViewModels.Authentication
 {
-    public class tblUser : IAuditableEntity
+    public class RegisterModel
     {
-        [Key]
-        public Guid ID { get; set; }
         public string Name { get; set; }
-
         public string Email { get; set; }
-
         public float Age { get; set; }
-
         public string Address_1 { get; set; }
         public string Address_2 { get; set; }
 
@@ -31,10 +24,7 @@ namespace TelemedicineApp.Database.Models
 
         public string Password { get; set; }
         public string PasswordHash { get; set; }
-       
-        public DateTime ActivationValidity { get; set; }
 
-        
-      
+        public DateTime ActivationValidity { get; set; }
     }
 }

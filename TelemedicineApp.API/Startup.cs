@@ -1,3 +1,5 @@
+using AutoMapper;
+using TelemedicineApp.API.Mapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,11 +37,16 @@ namespace TelemedicineApp.API
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddControllers();
-            //services.AddTransient<IRepository<tblUser>, Repository<tblUser>>();
-            // services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-              services.AddScoped<IUnitOfWork, UnitOfWork>();
            
-             services.AddSwaggerGen(c =>
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TelemedicineApp.API", Version = "v1" });
             });

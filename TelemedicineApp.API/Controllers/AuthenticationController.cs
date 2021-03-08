@@ -8,6 +8,8 @@ using TelemedicineApp.DAL.Repositories.Interfaces;
 using TelemedicineApp.Database.Models;
 using TelemedicineApp.DAL;
 using TelemedicineApp.API.Helpers;
+using TelemedicineApp.Models.ViewModels.Authentication;
+using AutoMapper;
 
 namespace TelemedicineApp.API.Controllers
 {
@@ -17,10 +19,12 @@ namespace TelemedicineApp.API.Controllers
     {
        // private readonly IRepository<tblUser> _tblUser;
         private readonly IUnitOfWork _unitOfWork;
-        public AuthenticationController(IUnitOfWork unitOfWork)
+        readonly IMapper _imapper;
+        public AuthenticationController(IUnitOfWork unitOfWork, IMapper imapper)
         {
             
             _unitOfWork = unitOfWork;
+            _imapper = imapper;
         }
         /// <summary>
         /// Authentication of User
@@ -63,7 +67,7 @@ namespace TelemedicineApp.API.Controllers
                             };
                             return Ok(response);
                         }
-                        else
+                        else    
                         {
                             var response = new
                             {
@@ -74,10 +78,26 @@ namespace TelemedicineApp.API.Controllers
                         }
                     }
                 }
-            }
+             }
             catch (Exception ex)
             {
                 Utilities.QuickLog($"Failed to Authentication Controller, Function : SignIn : {ex}");
+                return Ok(ex);
+            }
+        }
+
+        public IActionResult Register([FromBody] RegisterModel RegisterModel)
+        {
+            try
+            {
+                tblUser _tblUser = _imapper.Map<tblUser>(RegisterModel);
+                _tblUser.ID = Guid.NewGuid();
+                Guid tblUserID = _unitOfWork.tblUser.Addtbluser(_tblUser);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                Utilities.QuickLog($"Failed to Authentication Controller, Function : Register : {ex}");
                 return Ok(ex);
             }
         }

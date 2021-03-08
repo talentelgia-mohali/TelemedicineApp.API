@@ -39,6 +39,17 @@ namespace TelemedicineApp.DAL.Repositories
             return _appContext.tblUsers.Where(x => x.Password == Password).FirstOrDefault();
 
         }
+        /// <summary>
+        /// add tblUser 
+        /// </summary>
+        /// <param name="tblUser"></param>
+        /// <returns></returns>
+        public Guid Addtbluser(tblUser tblUser)
+        {
+            _appContext.tblUsers.Add(tblUser);
+            _appContext.SaveChanges();
+            return tblUser.ID;
 
+        }
     }
 }

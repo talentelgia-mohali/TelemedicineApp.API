@@ -12,9 +12,6 @@ namespace TelemedicineApp.DAL.Repositories
     public class Repository<T> : IRepository<T>
         where T : class 
     {
-        //internal TeleMedicineContext context;
-        //internal DbSet<T> dbSet;
-
         protected TeleMedicineContext _context;
         protected DbSet<T> dbSet;
 

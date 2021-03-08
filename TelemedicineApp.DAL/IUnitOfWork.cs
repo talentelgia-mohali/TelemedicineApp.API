@@ -11,8 +11,16 @@ namespace TelemedicineApp.DAL
 {
     public interface IUnitOfWork
     {
-       // IRepository<tblUser> tblUser { get; }
         IAuthorityRepository tblUser { get; }
+        IRepository<tblCity> tblCity { get; }
+        IRepository<tblCountry> tblCountry { get; }
+        IRepository<tblCountryState> tblCountryState { get; }
+        IRepository<tblRole> tblRole { get; }
+        IRepository<tblStateCity> tblStateCity { get; }
+        IRepository<tblState> tblState { get; }
+        IRepository<tblStatus> tblStatus { get; }
+
+
 
         int SaveChanges();
     }

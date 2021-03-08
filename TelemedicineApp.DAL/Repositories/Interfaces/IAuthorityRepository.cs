@@ -12,5 +12,6 @@ namespace TelemedicineApp.DAL.Repositories.Interfaces
         tblUser GetUserbyEmailandPassword(string Email, String Password);
         tblUser GetUsersbyEmail(string Password);
         tblUser GetUsersbyPassword(string Password);
+        Guid Addtbluser(tblUser tblUser);
     }
 }
